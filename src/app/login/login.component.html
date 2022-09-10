@@ -1,0 +1,35 @@
+<div class="row mt-3">
+    <div class="offset-2 col-xs-7">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <div class="form-group text-center">
+                    <label for="name">User Name</label>
+                    <input type="text" 
+                           id="name" 
+                           class="form-control" 
+                           name="username" 
+                           [ngModel]="user.username" 
+                           required>
+                </div>
+                <div class="form-group text-center">
+                    <label for="name">Password: </label>
+                    <input type="password" 
+                           id="name" 
+                           class="form-control" 
+                           name="password" 
+                           [ngModel]="user.password" 
+                           required>
+                </div>
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-primary" style="margin-left: 10px;" [disabled]="!f.valid">
+                        {{ 'Login' }}</button>
+
+                    <button type="button"
+                            class="btn btn-success" 
+                            style="margin-left: 10px;" 
+                            [disabled]="!f.valid"
+                            (click)="onSignUp(f)">
+                        {{ 'Sign UP' }}</button>
+                </div>
+        </form>
+    </div>
+</div>

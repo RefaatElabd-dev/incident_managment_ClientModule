@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-xs-12">
+        <a routerLink="../Login" class="btn btn-primary">
+            Login
+        </a>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="offset-2 col-xs-7">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <div class="form-group text-center">
+                    <label for="name">Incident Name</label>
+                    <input type="text" 
+                           id="name" 
+                           class="form-control" 
+                           name="name" 
+                           [ngModel]="incident.name" 
+                           required>
+                </div>
+                
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-success" style="margin-left: 10px;" [disabled]="!f.valid">
+                        {{ 'Add' }}</button>
+                </div>
+        </form>
+    </div>
+</div>

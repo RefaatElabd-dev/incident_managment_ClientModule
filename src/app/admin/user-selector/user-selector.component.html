@@ -1,0 +1,7 @@
+<select #usersGroup (change)="onSelected()">
+        
+    <option *ngFor="let user of userList;"
+            [value]="user._id">
+        {{ user.username }}
+    </option>
+</select>

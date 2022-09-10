@@ -32,7 +32,7 @@ export class SharedValueService{
     
     private decrypt(tkn: string): string {
         let token: string = '';
-        for(let i = 0; i < token.length; i += 3){
+        for(let i = 0; i < tkn.length; i += 3){
             token += tkn[i];
         }
         return token;

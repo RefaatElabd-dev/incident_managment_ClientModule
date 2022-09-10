@@ -17,6 +17,7 @@ import { IncidentComponent } from './incident/incident.component';
 import { StartComponent } from './incident/start/start.component';
 import { AuthService } from './Shared/Services/auth.Service';
 import { AuthGurd } from './Shared/Services/auth-gurd.service';
+import { UserSelectorComponent } from './admin/user-selector/user-selector.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AuthGurd } from './Shared/Services/auth-gurd.service';
     AdminComponent,
     UserComponent,
     IncidentComponent,
-    StartComponent
+    StartComponent,
+    UserSelectorComponent
   ],
   imports: [
     BrowserModule,

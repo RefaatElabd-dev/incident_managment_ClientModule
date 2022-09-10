@@ -1,1 +1,20 @@
-<p>admin works!</p>
+<div class="table-responsive-xl">
+    <table class="table">
+        <thead>
+            <tr class="bg-warning text-primary">
+                <th class="text-center" class="text-center">ID</th>
+                <th class="text-center">Incident Name</th>
+                <th class="text-center">Resolved</th>
+                <th class="text-center">User</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let incident of incidentList">
+                <tr>
+                    <th class="text-center">{{incident._id}}</th>
+                    <td class="text-center">{{incident.name}}</td>
+                    <td class="text-center">{{incident.resolved? 'Resolved': 'pending'}}</td>
+                    <td class="text-center">{{ (incident.userId)? GetUserName(incident.userId): <app-user-selector [incident]="incident"></app-user-selector>}}</td>
+                </tr>
+        </tbody>
+    </table>
+</div>

@@ -12,7 +12,7 @@ import { SharedValueService } from "./shared-value.service";
     providedIn: 'root'
 })
 export class UserService{
-   
+
     constructor(private http: HttpService,
                 private toastr: ToastrService,
                 private sharedService: SharedValueService,
@@ -23,10 +23,12 @@ export class UserService{
     currentUser!: User;
     userListChanged = new Subject<User[]>();
 
-    // public getUserList(): User[]{
-    //     return this.userList.slice();
-    // }
-
+    getAllUsers(){
+        this.http.getAllUsers().subscribe((res: User[]) => {
+            this.userList = res;
+            this.userListChanged.next(this.userList.slice());
+        })
+    }
     // public UpdateUserList(){
     //     this.http.getUserss().subscribe(users =>{
     //             this.userList = users;
@@ -66,22 +68,4 @@ export class UserService{
             }
         )
     }
-
-    // updateSubject(subject: SubjectDTO){
-    //     this.subjectHttpService.updateSubject(subject).subscribe(() =>{
-    //             this.UpdateSubjectList();
-    //         }
-    //     )
-    // }
-
-    // deleteSubject(index: number){
-    //     this.subjectHttpService.deleteSubject(index).subscribe(() =>{
-    //             this.UpdateSubjectList();
-    //         }
-    //     )
-    // }
-
-    // public getAllClasses(): Observable<ClassDTO[]>{
-    //     return this.subjectHttpService.getAllClasses();
-    // }
 }
